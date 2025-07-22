@@ -16,6 +16,24 @@ public class Program
         @"  ( ^.^ )  "
     };
 
+    private static readonly string goldenMonkeyArt = @"
+        🌟✨ GOLDEN MONKEY DISCOVERED! ✨🌟
+                    ,-.             .-.
+                   /  |           |  \
+                  /   |           |   \
+                 (_,  |           |  ,_)
+                     ( \  ,-^-,  / )
+                      `.\( o o )/'
+                        _)  ^  (_
+                       | \  -  / |
+                       \  '---'  /
+                        \  ___  /
+                         '--|-|--'
+                     🏆 RARE FIND! 🏆
+        You've encountered the legendary Golden Monkey!
+              This happens only 1 in 50 times!
+    ";
+
     public static void Main(string[] args)
     {
         var random = new Random();
@@ -83,6 +101,9 @@ public class Program
             return;
         }
         DisplayMonkeyDetails(monkey);
+        
+        // Check for Golden Monkey easter egg
+        CheckForGoldenMonkeyEasterEgg();
     }
 
     private static void GetRandomMonkey()
@@ -90,6 +111,9 @@ public class Program
         var monkey = MonkeyHelper.GetRandomMonkey();
         Console.WriteLine($"Random monkey (accessed {MonkeyHelper.GetRandomMonkeyAccessCount()} times):");
         DisplayMonkeyDetails(monkey);
+        
+        // Check for Golden Monkey easter egg
+        CheckForGoldenMonkeyEasterEgg();
     }
 
     private static void DisplayMonkeyDetails(Monkey monkey)
@@ -102,5 +126,22 @@ public class Program
         Console.WriteLine($"Details: {monkey.Details}");
         Console.WriteLine($"Image: {monkey.Image}");
         Console.WriteLine();
+    }
+
+    /// <summary>
+    /// Checks for and displays the Golden Monkey easter egg with a 1 in 50 chance.
+    /// </summary>
+    private static void CheckForGoldenMonkeyEasterEgg()
+    {
+        var random = new Random();
+        if (random.Next(1, 51) == 1) // 1 in 50 chance
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine(goldenMonkeyArt);
+            Console.ResetColor();
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+            Console.WriteLine();
+        }
     }
 }
