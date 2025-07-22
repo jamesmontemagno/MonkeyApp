@@ -55,4 +55,12 @@ public static class MonkeyHelper
     /// Gets the number of times a random monkey has been accessed.
     /// </summary>
     public static int GetRandomMonkeyAccessCount() => randomMonkeyAccessCount;
+
+    /// <summary>
+    /// Gets a random monkey for the "Monkey of the Day" feature without incrementing access count.
+    /// </summary>
+    public static Monkey GetMonkeyOfTheDay()
+    {
+        return monkeys[random.Next(monkeys.Count)];
+    }
 }

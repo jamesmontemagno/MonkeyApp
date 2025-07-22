@@ -16,8 +16,35 @@ public class Program
         @"  ( ^.^ )  "
     };
 
+    /// <summary>
+    /// Displays the Monkey of the Day at startup with ASCII art and monkey details.
+    /// </summary>
+    private static void DisplayMonkeyOfTheDay()
+    {
+        var monkey = MonkeyHelper.GetMonkeyOfTheDay();
+        var random = new Random();
+        
+        Console.WriteLine("🐒 MONKEY OF THE DAY 🐒");
+        Console.WriteLine(new string('=', 40));
+        Console.WriteLine();
+        
+        // Display ASCII art monkey
+        Console.WriteLine(asciiArt[random.Next(asciiArt.Length)]);
+        Console.WriteLine();
+        
+        Console.WriteLine($"Today's featured monkey: {monkey.Name}");
+        Console.WriteLine($"Location: {monkey.Location}");
+        Console.WriteLine($"Fun Fact: {monkey.Details}");
+        Console.WriteLine();
+        Console.WriteLine(new string('-', 40));
+        Console.WriteLine();
+    }
+
     public static void Main(string[] args)
     {
+        // Display Monkey of the Day at startup
+        DisplayMonkeyOfTheDay();
+
         var random = new Random();
         while (true)
         {
