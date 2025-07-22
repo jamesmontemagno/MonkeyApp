@@ -29,6 +29,20 @@ public static class MonkeyHelper
     private static int randomMonkeyAccessCount = 0;
     private static readonly Random random = new();
 
+    private static readonly List<string> monkeySounds = new()
+    {
+        "Ooh ooh! Aah aah!",
+        "Eek eek! Ooh ooh!",
+        "Aah aah! Eee eee!",
+        "Oook ook! Aah!",
+        "Chatter chatter!",
+        "Screech! Ooh ooh!",
+        "Hoo hoo! Aah aah!",
+        "Eek! Ook ook!",
+        "Chitter chatter!",
+        "Ooh! Aah! Eek!"
+    };
+
     /// <summary>
     /// Gets all monkeys.
     /// </summary>
@@ -55,4 +69,12 @@ public static class MonkeyHelper
     /// Gets the number of times a random monkey has been accessed.
     /// </summary>
     public static int GetRandomMonkeyAccessCount() => randomMonkeyAccessCount;
+
+    /// <summary>
+    /// Gets a random monkey sound.
+    /// </summary>
+    public static string GetRandomMonkeySound()
+    {
+        return monkeySounds[random.Next(monkeySounds.Count)];
+    }
 }

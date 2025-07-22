@@ -87,6 +87,8 @@ public class Program
 
     private static void GetRandomMonkey()
     {
+        var sound = MonkeyHelper.GetRandomMonkeySound();
+        Console.WriteLine(sound);
         var monkey = MonkeyHelper.GetRandomMonkey();
         Console.WriteLine($"Random monkey (accessed {MonkeyHelper.GetRandomMonkeyAccessCount()} times):");
         DisplayMonkeyDetails(monkey);
